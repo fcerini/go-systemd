@@ -1,0 +1,21 @@
+[Unit]
+Description=Test GO Service
+ConditionPathExists=/home/fer/go/src/github.com/fcerini/go-systemd
+After=network.target
+ 
+[Service]
+Type=simple
+User=fer
+Group=fer
+LimitNOFILE=1024
+
+Restart=always
+RestartSec=3
+
+
+WorkingDirectory=/home/fer/go/src/github.com/fcerini/go-systemd
+ExecStart=/home/fer/go/src/github.com/fcerini/go-systemd/go-systemd
+
+ 
+[Install]
+WantedBy=multi-user.target
